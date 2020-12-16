@@ -1,0 +1,32 @@
+body {
+  background-color: #3F88C5;
+  color: #eee;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-family: monospace;
+  font-size: 5em;
+  color: #FFBA08;
+}
+
+input[type=text], label {
+  margin-bottom: 8px;
+}
+
+#form-main {
+  margin: auto;
+  width: 50%;
+  border: #eee solid 4px;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#submit-btn {
+  background-color: #FFBA08;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
+}
