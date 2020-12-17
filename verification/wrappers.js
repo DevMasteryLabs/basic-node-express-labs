@@ -74,7 +74,7 @@ function testLogMessage (args) {
   } 
 
   // Check if it solves the hello-console challenge.
-  if (msg.toLowerCase().match(/^hello,?\sworld!?$/)) {
+  if (msg.toLowerCase().match(/^hello,?\sdevmastery!?$/)) {
     globals.userPassedConsoleChallenge = true
   }
 
