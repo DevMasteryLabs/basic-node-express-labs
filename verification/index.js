@@ -79,15 +79,15 @@ function setupBackgroundApp(app, main, dirname) {
   });
 
   app.get('/_api/json', function (req, res, next) {
-    var msgStyle = process.env.MESSAGE_STYLE;
-    process.env.MESSAGE_STYLE = undefined;
+    var msgStyle = process.env.TEXT_TRANSFORM;
+    process.env.TEXT_TRANSFORM = undefined;
     selfCaller('/json', req, res, function (lowerCase, req, res) {
-      process.env.MESSAGE_STYLE = msgStyle;
+      process.env.TEXT_TRANSFORM = msgStyle;
       try {
         lowerCase = JSON.parse(lowerCase);
       } catch (e) {
         console.log(e);
-        process.env.MESSAGE_STYLE = msgStyle;
+        process.env.TEXT_TRANSFORM = msgStyle;
         next(e);
       }
       res.json(lowerCase);
@@ -95,10 +95,10 @@ function setupBackgroundApp(app, main, dirname) {
   });
 
   app.get('/_api/use-env-vars', function (req, res, next) {
-    var foundVar = process.env.MESSAGE_STYLE === 'uppercase';
+    var foundVar = process.env.TEXT_TRANSFORM === 'uppercase';
     if (!foundVar) return res.json({ passed: false });
-    var envvar = process.env.MESSAGE_STYLE;
-    process.env.MESSAGE_STYLE = undefined;
+    var envvar = process.env.TEXT_TRANSFORM;
+    process.env.TEXT_TRANSFORM = undefined;
     selfCaller('/json', req, res, function (lowerCase, req, res) {
       debugger;
       try {
@@ -107,7 +107,7 @@ function setupBackgroundApp(app, main, dirname) {
         console.log(e);
         next(e);
       }
-      process.env.MESSAGE_STYLE = 'uppercase';
+      process.env.TEXT_TRANSFORM = 'uppercase';
       selfCaller('/json', req, res, function (upperCase, req, res) {
         try {
           upperCase = JSON.parse(upperCase).message;
@@ -115,8 +115,8 @@ function setupBackgroundApp(app, main, dirname) {
           console.log(e);
           next(e);
         }
-        process.env.MESSAGE_STYLE = envvar;
-        if (lowerCase === 'Hello json' && upperCase === 'HELLO JSON') {
+        process.env.TEXT_TRANSFORM = envvar;
+        if (lowerCase === 'You are welcome' && upperCase === 'YOU ARE WELCOME') {
           res.json({ passed: true });
         } else {
           res.json({ passed: false });
