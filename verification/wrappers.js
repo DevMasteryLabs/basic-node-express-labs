@@ -79,7 +79,7 @@ function testLogMessage (args) {
   }
 
   // Check if it solves the simple-middleware-logger challenge.
-  if (msg.match(/(GET|POST|PUT|DELETE|CONNECT|HEAD|OPTIONS|TRACE)\s\/.*\s\-\s.*(\d{1,3}\.){3}\d{1,3}/)) {
+  if (msg.trim().match(/(GET|POST|PUT|DELETE|CONNECT|HEAD|OPTIONS|TRACE)\s\/\S*$/)) {
     globals.userPassedLoggerChallenge = true
   }
 }
