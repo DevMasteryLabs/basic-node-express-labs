@@ -10,8 +10,5 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node server.js"
-	},
-	"engines": {
-		"node": "12.19.0"
 	}
 }

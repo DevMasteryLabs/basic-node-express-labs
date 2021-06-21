@@ -46,7 +46,7 @@ app.use(cors());
 
 const port = process.env.PORT || 9000;
 backgroundVerification.setupBackgroundApp(app, main, __dirname).listen(port, function(){
-  backgroundVerification.log('Server is listening ... ')
+  backgroundVerification.log(`Server is listening at http://localhost:${port}`)
 });
 
 /*
