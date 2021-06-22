@@ -35,7 +35,7 @@
 ###
 */
 
- 
+require('dotenv').config(); 
 const backgroundVerification = require('./verification');
 const main = require('./main');
 const express = require('express');
